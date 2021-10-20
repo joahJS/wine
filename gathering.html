@@ -574,18 +574,22 @@
     <!-- Initialize Swiper -->
     <script>
         var galleryThumbs = new Swiper('.gallery-thumbs', {
+            speed:3000,
             spaceBetween: 10,
             slidesPerView: 3,
-
+            loop:true,
+            autoplay:true,
             freeMode: true,
-            loopedSlides: 5, //looped slides should be the same
+            loopedSlides: 3, //looped slides should be the same
             watchSlidesVisibility: true,
             watchSlidesProgress: true,
         });
         var galleryTop = new Swiper('.gallery-top', {
-            spaceBetween: 10,
+            speed:3000,
+            spaceBetween: 0,
             loop: true,
-            loopedSlides: 5, //looped slides should be the same
+            autoplay:true,
+            loopedSlides: 3, //looped slides should be the same
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
