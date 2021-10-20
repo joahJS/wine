@@ -1,0 +1,265 @@
+@charset "UTF-8";
+/* ---------- Page-Specific Layout CSS (Index) ---------- */
+/* ---------- SCSS 공통 선언 시작 ---------- */
+/* ---------- SCSS 공통 선언 종료 ---------- */
+/* ---------- 영역 공통 선언 시작 ---------- */
+/* ---------- 영역 공통 선언 종료 ---------- */
+/* ---------- 하부 요소 시작 ---------- */
+/* ---------- 하부 요소 종료 ---------- */
+/* ---------- 페이지 특정 요소 시작 ---------- */
+div#mainSlider {
+	position: relative;
+	width: 100%;
+	height: 45vh;
+	background: var(--color_bdr);
+	box-shadow: var(--shd_minor);
+	overflow: hidden;
+}
+div#mainSlider::before {
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: radial-gradient(farthest-corner at right, transparent 0%, rgba(var(--color_dark), 0.5) 100%);
+	pointer-events: none;
+	z-index: 1;
+	content: "";
+}
+
+.slider_item {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.slider_item img {
+	width: 100%;
+	height: 45vh;
+	-o-object-fit: cover;
+	   object-fit: cover;
+}
+
+.card_partner {
+	position: relative;
+	width: calc((100% - 1.5rem) / 4);
+	height: 10rem;
+	border: var(--border);
+	background: rgb(var(--color_light));
+}
+.card_partner > img {
+	width: 100%;
+	height: 100%;
+	-o-object-fit: cover;
+	   object-fit: cover;
+}
+.card_partner_overlay {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 0.5rem;
+	height: 3rem;
+	background: rgba(var(--color_dark), 0.5);
+	-webkit-backdrop-filter: blur(0.25rem);
+	        backdrop-filter: blur(0.25rem);
+	transition: 0.3s;
+	overflow: hidden;
+}
+.card_partner_overlay > h5,
+.card_partner_overlay p {
+	color: rgb(var(--color_light));
+	font-weight: normal;
+	transition: 0.3s;
+}
+.card_partner_overlay > p {
+	line-height: 1.6;
+}
+.card_partner_desc {
+	margin-top: 1rem;
+	opacity: 0;
+}
+.card_partner_tag {
+	position: absolute;
+	bottom: 0.5rem;
+	left: 0.5rem;
+	right: 0.5rem;
+	text-align: end;
+}
+.card_partner_tag > span {
+	display: inline-block;
+	padding: 0.3rem 0.4rem;
+	border-radius: var(--bdr_outer);
+	background: rgb(var(--color_tone2));
+	color: rgb(var(--color_acc2));
+	font-size: var(--fnt_12);
+	transition: 0.3s;
+	opacity: 0;
+}
+.card_partner:hover > .card_partner_overlay {
+	height: 100%;
+}
+.card_partner:hover .card_partner_desc {
+	opacity: 0.8;
+}
+.card_partner:hover .card_partner_tag > span {
+	opacity: 1;
+}
+
+.item_review {
+	display: flex;
+	position: relative;
+	width: calc(58.5rem / 2);
+	height: 17.5rem;
+	border: var(--border);
+	background: rgb(var(--color_light));
+}
+.item_review::before {
+	display: block;
+	position: absolute;
+	top: 0.25rem;
+	right: calc(100% - 17.2rem);
+	padding: 0.15rem 0.5rem;
+	border: 0.05rem solid currentColor;
+	border-radius: var(--bdr_outer);
+	font-family: var(--ff_eng);
+	color: rgba(var(--color_light), 0.75);
+	font-weight: bold;
+	text-shadow: 0.05rem 0.05rem 0 rgba(var(--color_dark), 0.3);
+	transition: 0.3s;
+	z-index: 2;
+	content: "";
+}
+.item_review:is([data-category=byob])::before {
+	border-color: #008841;
+	background: rgb(var(--color_acc2));
+	content: "BYOB";
+}
+.item_review:is([data-category=list])::before {
+	border-color: #dc801f;
+	background: rgb(var(--color_acc1));
+	content: "LIST";
+}
+.item_review > .review_image {
+	width: 17.5rem;
+	height: 100%;
+	border-right: var(--border);
+	-o-object-fit: cover;
+	   object-fit: cover;
+}
+.item_review > .review_desc {
+	width: 100%;
+	height: 100%;
+	padding: 1rem 0.5rem;
+}
+.item_review > .review_desc h4 {
+	font-family: var(--ff_serif);
+}
+.item_review .review_text {
+	width: 100%;
+	height: 11rem;
+	color: rgba(var(--color_text), 0.5);
+	font-size: var(--fnt_14);
+	line-height: 1.4;
+	overflow-y: auto;
+}
+.item_review .review_text::-webkit-scrollbar {
+	background: transparent;
+}
+.item_review .review_info {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.25rem 0 0.5rem;
+}
+.item_review .review_star {
+	margin-top: 0.5rem;
+	padding: 0.5rem 0;
+	border-top: var(--border);
+}
+
+.short_banner {
+	position: relative;
+	width: calc(58.5rem / 2);
+	height: 11rem;
+	border-radius: var(--bdr_outer);
+}
+.short_banner > a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.short_banner * {
+	position: absolute;
+}
+.short_banner p:first-of-type {
+	top: 1rem;
+	left: 1.5rem;
+	font-size: var(--fnt_16);
+	font-weight: bold;
+}
+.short_banner p:nth-of-type(2) {
+	top: 5.5rem;
+	left: 1.5rem;
+	max-width: calc(100% - 3rem);
+	font-size: var(--fnt_16);
+	font-weight: bold;
+	line-height: 1.2;
+}
+.short_banner h2 {
+	top: 3rem;
+	left: 1.5rem;
+	font-family: var(--ff_serif);
+	color: rgb(var(--color_title));
+}
+.short_banner.banner_first {
+	background: #ffd2d5 url("../images/main_banner03.png") no-repeat;
+	background-position: bottom -1rem right -1rem;
+	background-size: contain;
+}
+.short_banner.banner_second {
+	background: #c3d9f1 url("../images/main_banner04.png") no-repeat;
+	background-position: bottom -0.5rem right -1rem;
+	background-size: contain;
+}
+
+.long_banner {
+	position: relative;
+	margin: 4rem 0;
+	height: 8rem;
+	border-radius: var(--bdr_outer);
+}
+.long_banner > a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.long_banner * {
+	position: absolute;
+}
+.long_banner p {
+	top: 1.5rem;
+	left: 1.5rem;
+	font-size: var(--fnt_16);
+	font-weight: bold;
+}
+.long_banner h2 {
+	top: 3.5rem;
+	left: 1.5rem;
+	font-family: var(--ff_serif);
+	color: rgb(var(--color_title));
+}
+.long_banner .banner_image {
+	top: -1.5rem;
+	right: 2.5rem;
+	height: 11rem;
+}
+
+#secBanner_01 {
+	background: linear-gradient(to right, rgb(var(--color_tone2)) 50%, #5c8bb4 100%);
+}
+
+#secBanner_02 {
+	background: linear-gradient(to right, rgb(var(--color_tone1)) 50%, rgb(var(--color_acc1)) 100%);
+}
